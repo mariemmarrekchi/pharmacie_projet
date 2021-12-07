@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <title>pharmacie &mdash; Website  by mariem marrekchi ©</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+    <link rel="icon" href="images/logo.jpeg"/>
+      
+     
+       <!-- MAIN CSS -->
+       <link rel="stylesheet" href="css/style.css">
+      
+
+
+</head>
+<body>
+    <input type="email" name="email" id="email" onkeyup="verif()"/>
+<input type="radio" name="r1" id="r1" />gardon
+<input type="radio" name="r1" id="r2" value="fille"/>fille
+<button type="submit" onclick="verif()">ok</button>
+<img
+src="images/carte-de-la-tunisie.jpg"
+class="card-img-top" usemap="#tunis"
+alt="..."
+/>
+<map name="tunis">
+    <area  title="Bizerte" href="bizerte.html" coords="323,116,324,121,332,128,336,134,339,139,342,148,347,150,347,167,358,162,366,156,372,156,384,147,393,141,408,134,414,131,418,124,424,112,439,110,443,105,429,95,418,95,409,87,398,85,383,85,369,84,352,92,361,92,342,97,326,100,322,104" shape="poly">
+ 
+  
+  </map>
+    <script>
+        const verif=()=>{
+            let ch=document.getElementsByTagName("input").length;
+
+    alert(ch)
+
+
+          /*  let regexp=/[a-z]@/g;
+            let ver=document.getElementById('email').value.match(regexp);
+            console.log(ver);
+            if(ver==null){
+                alert("il faut contient @")
+            }*/
+        }
+    </script>
+</body>
+</html>
