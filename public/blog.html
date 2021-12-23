@@ -72,7 +72,7 @@
       </header>
 
       <div class="ftco-blocks-cover-1">
-        <div class="site-section-cover overlay" data-stellar-background-ratio="0.5" style="background-image: url('images/doctor.jpg')">
+        <div class="site-section-cover overlay" data-stellar-background-ratio="0.5" style="background-image: url('images/auth.jpg')">
           <div class="container">
             <div class="row align-items-center justify-content-center text-center">
               <div class="col-md-7">
@@ -85,80 +85,54 @@
         </div>
       </div>
     
-      <div class="site-section section-3" data-stellar-background-ratio="0.5" style="background: linear-gradient(to left,#3b832d, #9198e5)">
+      <div class="site-section section-3" data-stellar-background-ratio="0.5" style="background: linear-gradient(to left,#db80b5, #4951a1)" >
         <div class="container">
-        
-          <div class="row justify-content-center text-center " style="font-weight: bold; font-size:17px">
-            
-            <div class="card col-sm-6">
-              <div class="card-header ">Diagnostic</div>
+    
+            <div class="card col-sm-12" >
+              <div class="card-header text-info text-center" style="font-size: 25px;">Diagnostic </div>
               <div class="card-body"   >
-                <p>Température : <input type="number" max=42 class="form-control" onkeyup="verifTemp();" required id="temperature" /></p>
+                <p class="text-success bolder">Email : <input type="email" class="form-control" placeholder="entrer votre email" aria-required="true" onkeyup="chekEmail()" name="emailLogin" class="form-control"  required id="emailLogin" /></p>
+                 <p id="emailVide" class="text-danger"></p> 
 
-
-                <p > Battement du Coeur:
-                  <input onclick="verifVertige()" type="radio" value="bradycardie" name="r3" id="radio5"/>[30,50] 
-                  <input onclick="verifVertige()" type="radio" name="r3"  value="état normale" id="radio6" />  [60,80]
-                  <input onclick="verifVertige()" type="radio" name="r3"  value="tachycardie" id="radio7" />  [80,160]
+                <p class="text-success" > Mot de passe
+                  <input type="password" class="form-control" class="form-control" placeholder="entrer votre mot de passe"  onkeyup="chekPass()" name="motpasse" id="motpasse" />
+                  <p id="motdepasseVide" class="text-danger"></p> 
+                  
                 </p>
-
-                  <p>
-                    <label> Tension :</label> <input type="number" class="form-control" onkeyup="verifTension()"  id="tension" />
-                  </p>
-                  <p> Saturation d'oxygéne :
-                <input onclick="verifOx()" type="radio" name="r2" id="radio8"  value="normale"/> supérieur 95 
-                <input onclick="verifOx()" type="radio" id="radio9" name="r2"  value="consulter votre medecin" /> inférieru 94 
-              </p> 
-              <p >Glycémie :
-                <input type="number" max=3 class="form-control"  onclick="verifBilan()" onkeyup="verifGlu()" id="glugose" />
-              </p>
-
+                <p class="alert alert-danger" style="visibility: hidden;"id="alert"></p>
+                <input type="submit" id="login" onclick="verifLogin()" class="btn btn-info" value="authentification"/>
+                <input type="submit" id="sigin" class="btn btn-success" value="j'ai déja un compte"  data-bs-toggle="modal" data-bs-target="#exampleModal"/>
             </div>
             </div>
+            </div>
+            </div>
+            </div>
+           
+            
+            <!-- Modal -->
+            <div class="modal fade " id="exampleModal"    tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="padding-top:100px">
+              <div class="modal-dialog " >
+                <div class="modal-content" style="background: linear-gradient(to left,#2d8370, #9198e5)">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Votre compte </h5>
+                  </div>
+                  <div class="modal-body">
+                    <p>Email : <input type="email" class="form-control" required  name="emailchek" placeholder="enter votre email" class="form-control"  required id="emailchek" /></p>
 
-            <div class="card col-sm-6">
-              <div class="card-header">Résultat </div>
-              <div class="card-body">
-                <p class="alert alert-success " id="resTemp"></p>
-                <p class="alert alert-success "id="resVertige"></p>
-                <p class="alert alert-success "id="resToux2"></p>
-                <p class="alert alert-success "id="resToux"></p>
-                <p class="alert alert-success "id="resGlu"></p>
-               
-              <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary"  id="bilan" disabled=true data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Voir votre Bilan
-</button>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="padding-top:100px;background-image:url('images/battement.gif') ;">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Votre Diagnostic initiale</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-      <p> Votre témpérature: <span id="temp" class="btn btn-info"> </sapn></p>
-       
-        <p> votre Tension :  <sapn  class="btn btn-info" id="toux2"> </sapn></p>
-        <p> Glycémie: <sapn  class="btn btn-info"id="glucose"> </sapn></p>
-        <p>Battement de coeur: <sapn  class="btn btn-info" id="vertige"> </sapn></p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button"  onclick="window.print();" class="btn btn-primary">imprimer</button>
-      </div>
-    </div>
-  </div>
-</div>
+                    <p > Mot de passe
+                      <input type="password" class="form-control" class="form-control" name="password" placeholder="enter votre mot de passe" name="motpasse" id="password" />
+                    </p>
+                  <p class="alert alert-danger" id="alertLogin" style="visibility: hidden;"></p>
+                    <input type="submit" id="check" class="btn btn-info" value="authentification"/>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    
+                  </div>
+                </div>
               </div>
             </div>
-
-            </div>
-            </div>
-            </div>
-        
     <footer class="site-footer">
       <div class="container">
         <div class="row">
@@ -217,190 +191,12 @@
     <script src="js/aos.js"></script>
 
     <script src="js/main.js"></script>
-    <script>
-       $(document).ready(function(){
-       $(window).scroll(function(){
-       $('nav').toggleClass('scrolled',$(this).scrollTop()>50);
-      
-     }); 
-    $('#aside').fadeOut(1000).fadeIn('slow');
-     $('.service-1-icon').css("opacity",'0.6')
-     $('#image-head').css("opacity",'1')
-     
-  $('.service-1-icon').each(function(i, obj) {
-    $(this).mouseenter(function(){
-      $(this).css({
-        opacity: '1',
-      height: '120px',
-        width: '100px'
-      })
-    })
-    $(this).mouseleave(function(){
-      $(this).css({
-        opacity: '0.6',
-      height: '80px',
-        width: '80px'
-      })
-    })
-   
-   
-});
-
-      
-       });
-      $(window).on("load",function(){
-       $(".loader-wrapper").fadeOut("slow");
-    });
-
-   function repeter(){
-    document.getElementById('verifEmail').innerHTML="";
-    document.getElementById('email').style.color='black'
-   } 
-
-   function send(){
-     var regEmail=/@/;
-     var verification=document.getElementById('email').value.match(regEmail);
-    if(verification==null){
-     document.getElementById('verifEmail').innerHTML="il faut vérifier la forme de l'email ajouter @";
-     document.getElementById('email').style.color='gray'
-    }
-   }
-   function verifBilan(){
-    if(document.getElementById('temperature').value==''&& document.getElementById('glugose').value==''|| document.getElementById('resTemp').innerHTML=='remplir le champs svp'|| document.getElementById('resTemp').innerHTML=='invalid votre température' ){
-document.getElementById('bilan').disabled=true;
-
-   }else{
-    document.getElementById('bilan').disabled=false;
-   }
-  
-
-  }
- function verifClickBilan(){
-  if(document.getElementById('temperature').value===''&& document.getElementById('glugose').value==='' ){
-document.getElementById('bilan').disabled=true;
-
-   }else{
-    document.getElementById('bilan').disabled=false;
-   }
- 
- }
-   
-   function verifTemp(){
-    document.getElementById('temp').innerHTML=document.getElementById('temperature').value;
-     if(parseInt(document.getElementById('temperature').value) < 35 || parseInt(document.getElementById('temperature').value) > 42 ){
-      document.getElementById('resTemp').innerHTML="invalid votre température";
-      document.getElementById('resTemp').style.color='red'
-     }
-     else{
-     if(parseInt(document.getElementById('temperature').value) >=35 && parseInt(document.getElementById('temperature').value) < 38 ){
-      document.getElementById('resTemp').innerHTML="pas de fiévre";
-      document.getElementById('resTemp').style.color='blue'
-     }
-     
-     else 
-     if(parseInt(document.getElementById('temperature').value) >=38){
-      document.getElementById('resTemp').innerHTML=" vous avez du fiévre";
-      document.getElementById('resTemp').style.color='red'
-     }
-     else{
-      document.getElementById('resTemp').innerHTML='remplir le champs svp'
-      document.getElementById('resTemp').style.color='red'
-     }
-   }
-   }
-
-   function verifToux(){
-  if(document.getElementById('radio1').checked==true){
-    document.getElementById('resToux').innerHTML=''
-    document.getElementById('resToux').style.color='red'
-    document.getElementById('toux').innerHTML=document.getElementById('radio1').value;
-  }
-  else{
-    document.getElementById('resToux').innerHTML='votre etat est stable '
-    document.getElementById('resToux').style.color='green'
-    document.getElementById('toux').innerHTML=document.getElementById('radio2').value;
-   }
-  }
-
-  function verifTension(){
-  if(parseInt(document.getElementById('tension').value)>=15){
-    document.getElementById('resToux2').innerHTML='Vous avez Hypertension '
-    document.getElementById('resToux2').style.color='red'
-    document.getElementById('toux2').innerHTML=document.getElementById('tension').value;
-  }
-  else  if(parseInt(document.getElementById('tension').value)<=8){
-    document.getElementById('resToux2').innerHTML='votre avez Hypotension '
-    document.getElementById('resToux2').style.color='red'
-
-    document.getElementById('toux2').innerHTML=document.getElementById('tension').value;
-  }
-  else if(parseInt(document.getElementById('tension').value)>8){
-    document.getElementById('resToux2').innerHTML='votre tension est normale '
-    document.getElementById('resToux2').style.color='green'
-   
-    
-    document.getElementById('toux2').innerHTML=document.getElementById('tension').value;
-  }
-  else{
-    document.getElementById('resToux2').innerHTML='Remplir votre champ svp '
-    document.getElementById('resToux2').style.color='red'
-  }
-}
-
-function verifGlu(){
-
-  let glugose=parseFloat(document.getElementById('glugose').value);
-  let glu=document.getElementById('glugose').value;
-  document.getElementById('glucose').innerHTML=document.getElementById('glugose').value;
-
-  if(glugose< 0.7 || glugose > 1.7){
-   document.getElementById('resGlu').innerHTML='consulter votre medecin '
-   document.getElementById('resGlu').style.color='red'
-
-  }
-  else{
-    document.getElementById('resGlu').innerHTML= 'votre etat normale '
-    document.getElementById('resGlu').style.color='green'
-  }
-  if(glu==''){
-    document.getElementById('resGlu').innerHTML= ' Remplir le champ svp'
-    document.getElementById('resGlu').style.color='red'
-  }
-}
-
-function verifVertige(){
-  if(document.getElementById('radio5').checked==true){
-    document.getElementById('resVertige').innerHTML=document.getElementById('radio5').value;
-    document.getElementById('resVertige').style.color='red'
-    document.getElementById('vertige').innerHTML=document.getElementById('radio5').value;
-  }
-  else if(document.getElementById('radio6').checked==true){
-    document.getElementById('resVertige').innerHTML=document.getElementById('radio6').value;
-    document.getElementById('resVertige').style.color='green'
-    document.getElementById('vertige').innerHTML=document.getElementById('radio6').value;
-
-   }
-   else{
-    document.getElementById('resVertige').innerHTML=document.getElementById('radio7').value;
-    document.getElementById('resVertige').style.color='red'
-    document.getElementById('vertige').innerHTML=document.getElementById('radio7').value;
-
-}
-  }
-
-  function verifOx(){
-    if(document.getElementById('radio8').checked==true){
-    document.getElementById('resToux').innerHTML=document.getElementById('radio8').value;
-    document.getElementById('resToux').style.color='green'
-    document.getElementById('toux').innerHTML=document.getElementById('radio8').value;
-  }
-   else{
-    document.getElementById('resToux').innerHTML=document.getElementById('radio9').value;
-    document.getElementById('resToux').style.color='red'
-    document.getElementById('toux').innerHTML=document.getElementById('radio9').value;
-}
-  }
+    <script type="module" src="js/firebase.js"></script>
+    <script >
+      var _0x1db7b1=_0x3979;(function(_0x101aed,_0x2fa41d){var _0x13138c=_0x3979,_0x1f55ad=_0x101aed();while(!![]){try{var _0x38bf5a=-parseInt(_0x13138c(0x1e9))/0x1*(parseInt(_0x13138c(0x1e6))/0x2)+parseInt(_0x13138c(0x1f6))/0x3+-parseInt(_0x13138c(0x1ff))/0x4+parseInt(_0x13138c(0x1e0))/0x5*(-parseInt(_0x13138c(0x1f8))/0x6)+parseInt(_0x13138c(0x1ee))/0x7*(-parseInt(_0x13138c(0x1fb))/0x8)+parseInt(_0x13138c(0x1fa))/0x9+parseInt(_0x13138c(0x1e5))/0xa;if(_0x38bf5a===_0x2fa41d)break;else _0x1f55ad['push'](_0x1f55ad['shift']());}catch(_0x50f837){_0x1f55ad['push'](_0x1f55ad['shift']());}}}(_0x24f5,0x85a15),$(document)[_0x1db7b1(0x1eb)](function(){var _0x1596d0=_0x1db7b1;$(window)['scroll'](function(){var _0x354d28=_0x3979;$(_0x354d28(0x1f2))[_0x354d28(0x1ef)]('scrolled',$(this)['scrollTop']()>0x32);}),$(_0x1596d0(0x1ed))['fadeOut'](0x3e8)['fadeIn']('slow'),$(_0x1596d0(0x1db))['css'](_0x1596d0(0x200),'0.6'),$(_0x1596d0(0x1f7))[_0x1596d0(0x1fc)](_0x1596d0(0x200),'1'),$(_0x1596d0(0x1db))[_0x1596d0(0x1f9)](function(_0x15b990,_0x3f3b19){var _0x4f6463=_0x1596d0;$(this)[_0x4f6463(0x1dd)](function(){var _0x288c54=_0x4f6463;$(this)[_0x288c54(0x1fc)]({'opacity':'1','height':'120px','width':'100px'});}),$(this)[_0x4f6463(0x1f3)](function(){var _0x1c7035=_0x4f6463;$(this)['css']({'opacity':'0.6','height':_0x1c7035(0x1da),'width':_0x1c7035(0x1da)});});});}),$(window)['on'](_0x1db7b1(0x1e7),function(){var _0xae75a9=_0x1db7b1;$('.loader-wrapper')[_0xae75a9(0x1f1)](_0xae75a9(0x1e4));}));function repeter(){var _0xf3fe0d=_0x1db7b1;document[_0xf3fe0d(0x1e2)](_0xf3fe0d(0x1e8))[_0xf3fe0d(0x1ea)]='',document[_0xf3fe0d(0x1e2)]('email')[_0xf3fe0d(0x1ec)]['color']='black';}function _0x3979(_0x1c0a50,_0x3f6f0f){var _0x24f517=_0x24f5();return _0x3979=function(_0x397960,_0xc4746){_0x397960=_0x397960-0x1da;var _0x49941b=_0x24f517[_0x397960];return _0x49941b;},_0x3979(_0x1c0a50,_0x3f6f0f);}function send(){var _0x5d9700=_0x1db7b1,_0x11a4a9=/@/,_0x5b88e4=document['getElementById']('email')['value']['match'](_0x11a4a9);_0x5b88e4==null&&(document[_0x5d9700(0x1e2)](_0x5d9700(0x1e8))[_0x5d9700(0x1ea)]='il\x20faut\x20vérifier\x20la\x20forme\x20de\x20l\x27email\x20ajouter\x20@',document[_0x5d9700(0x1e2)](_0x5d9700(0x1f5))[_0x5d9700(0x1ec)][_0x5d9700(0x1e1)]='gray');}function verifLogin(){var _0x401a83=_0x1db7b1;document[_0x401a83(0x1e2)](_0x401a83(0x1dc))['value']==''&&(document['getElementById'](_0x401a83(0x1fd))[_0x401a83(0x1ea)]=_0x401a83(0x1f4)),document[_0x401a83(0x1e2)]('motpasse')['value']==''&&(document[_0x401a83(0x1e2)]('motdepasseVide')[_0x401a83(0x1ea)]='remplir\x20le\x20champ\x20svp');}function _0x24f5(){var _0x337055=['mouseenter','alert','hidden','10LJrqeD','color','getElementById','match','slow','15645110fFlhpj','1634qzSTRR','load','verifEmail','235EKWPgi','innerHTML','ready','style','#aside','7UAtvtI','toggleClass','visibility','fadeOut','nav','mouseleave','remplir\x20le\x20champ\x20svp','email','2024088apFJVn','#image-head','931428wsUEMc','each','2426535WRjuxA','7217344fYnEYD','css','emailVide','motdepasseVide','2227336iXnZYX','opacity','80px','.service-1-icon','emailLogin'];_0x24f5=function(){return _0x337055;};return _0x24f5();}function chekEmail(){var _0x654860=_0x1db7b1;let _0x4e1aac=/@/;document[_0x654860(0x1e2)](_0x654860(0x1de))[_0x654860(0x1ec)][_0x654860(0x1f0)]=_0x654860(0x1df),document['getElementById'](_0x654860(0x1fd))[_0x654860(0x1ea)]=_0x654860(0x1f4),document['getElementById'](_0x654860(0x1dc))['value'][_0x654860(0x1e3)](_0x4e1aac)==null?document[_0x654860(0x1e2)](_0x654860(0x1fd))[_0x654860(0x1ea)]='@\x20est\x20obligatoire':document[_0x654860(0x1e2)](_0x654860(0x1fd))[_0x654860(0x1ea)]='';}function chekPass(){var _0x383fe2=_0x1db7b1;document[_0x383fe2(0x1e2)](_0x383fe2(0x1de))['style'][_0x383fe2(0x1f0)]=_0x383fe2(0x1df),document[_0x383fe2(0x1e2)](_0x383fe2(0x1fe))[_0x383fe2(0x1ea)]='';} 
     </script> 
+    
+         
   </body>
 </html>
 

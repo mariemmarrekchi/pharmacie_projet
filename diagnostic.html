@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <title>pharmacie &mdash; Website  by mariem marrekchi ©</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans:300,400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+ <link rel="icon" href="images/logo.jpeg"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+  </head>
+
+  <body id="body"   data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+ 
+   
+    <div class="site-wrap" id="home-section">
+
+      <div class="site-mobile-menu site-navbar-target" style="background: linear-gradient(to left,#3b832d, #9198e5)">
+        <div class="site-mobile-menu-header"  >
+          <div class="site-mobile-menu-close mt-3">
+            <span class="icon-close2 js-menu-toggle"></span>
+          </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+      </div>
+    
+
+
+      <header class="site-navbar site-navbar-target  " role="banner" >
+
+        <div class="container  "  >
+          <div class="row align-items-center position-relative " >
+
+            <div class="col-3 ">
+              <div class="site-logo">
+                <a href="index.html" id="bienvenue">Bienvenue</a>
+              </div>
+            </div>
+
+            <div class="col-9  text-right ">
+              <span class="d-inline-block d-lg-none"><a href="#" class="text-white site-menu-toggle js-menu-toggle py-5 text-white"><span class="icon-menu h3 text-white"></span></a></span>
+
+              <nav class="site-navigation text-right ml-auto d-none d-lg-block fixed-top bgcolor " role="navigation">
+               
+                <ul class="site-menu main-menu js-clone-nav ml-auto ">
+                  <li class="active navtext"><a href="index.html" class="nav-link" >Accueil</a></li>
+                 
+                  <li><a href="recherche.html" class="nav-link navtex">Recherche map</a></li>
+                  <li><a href="blog.html" class="nav-link navtex">actualités</a></li>
+                  <li><a href="contact.html" class="nav-link navtex">Contact</a></li>
+                 
+                  
+                </ul>
+              </nav>
+            </div>
+
+            
+          </div>
+        </div>
+
+      </header>
+
+      <div class="ftco-blocks-cover-1">
+        <div class="site-section-cover overlay" data-stellar-background-ratio="0.5" style="background-image: url('images/doctor.jpg')">
+          <div class="container">
+            <div class="row align-items-center justify-content-center text-center">
+              <div class="col-md-7">
+               
+                <h1 class="mb-3" id="aside">Diagnostic :Prendre soin de sa santé ne change pas l'issue, mais le trajet.</h1>  
+                <p><a href="recherche.html" class="btn btn-success">Recherche pharmacie</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="site-section section-3" data-stellar-background-ratio="0.5" style="background: linear-gradient(to left,#3b832d, #9198e5)">
+        <div class="container">
+        
+          <div class="row justify-content-center text-center " style="font-weight: bold; font-size:17px">
+            
+            <div class="card col-sm-6">
+              <div class="card-header ">Diagnostic</div>
+              <div class="card-body"   >
+                <p>Température : <input type="number" max=42 class="form-control" onkeyup="verifTemp();" required id="temperature" /></p>
+
+
+                <p > Battement du Coeur:
+                  <input onclick="verifVertige()" type="radio" value="bradycardie" name="r3" id="radio5"/>[30,50] 
+                  <input onclick="verifVertige()" type="radio" name="r3"  value="état normale" id="radio6" />  [60,80]
+                  <input onclick="verifVertige()" type="radio" name="r3"  value="tachycardie" id="radio7" />  [80,160]
+                </p>
+
+                  <p>
+                    <label> Tension :</label> <input type="number" class="form-control" onkeyup="verifTension()"  id="tension" />
+                  </p>
+                  <p> Saturation d'oxygéne :
+                <input onclick="verifOx()" type="radio" name="r2" id="radio8"  value="normale"/> supérieur 95 
+                <input onclick="verifOx()" type="radio" id="radio9" name="r2"  value="consulter votre medecin" /> inférieru 94 
+              </p> 
+              <p >Glycémie :
+                <input type="number" max=3 class="form-control"  onclick="verifBilan()" onkeyup="verifGlu()" id="glugose" />
+              </p>
+
+            </div>
+            </div>
+
+            <div class="card col-sm-6">
+              <div class="card-header">Résultat </div>
+              <div class="card-body">
+                <p class="alert alert-success " id="resTemp"></p>
+                <p class="alert alert-success "id="resVertige"></p>
+                <p class="alert alert-success "id="resToux2"></p>
+                <p class="alert alert-success "id="resToux"></p>
+                <p class="alert alert-success "id="resGlu"></p>
+               
+              <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary"  id="bilan" disabled=true data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Voir votre Bilan
+</button>
+<button type="button" class="btn btn-success"  id="butlog" >
+  LogOut
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="padding-top:100px;background-image:url('images/battement.gif') ;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Votre Diagnostic initiale</h5>
+      
+      </div>
+      <div class="modal-body">
+      <p> Votre témpérature: <span id="temp" class="btn btn-info"> </sapn></p>
+       
+        <p> votre Tension :  <sapn  class="btn btn-info" id="toux2"> </sapn></p>
+        <p> Glycémie: <sapn  class="btn btn-info"id="glucose"> </sapn></p>
+        <p>Battement de coeur: <sapn  class="btn btn-info" id="vertige"> </sapn></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button"  onclick="window.print();" class="btn btn-primary">imprimer</button>
+      </div>
+    </div>
+  </div>
+</div>
+              </div>
+            </div>
+
+            </div>
+            </div>
+            </div>
+           
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3">
+            <img src="images/info.jpg" alt="Image" class="img-fluid mb-8">
+            <h2 class="footer-heading mb-3">Biographie</h2>
+                <p>Mariem Marrekchi ingénieur en génie informatique  full stack (frontend and backend) </p>
+          </div>
+          <div class="col-lg-8 ml-auto">
+            <div class="row">
+               <div class="col-lg-6 ml-auto">
+                <h2 class="footer-heading mb-4">Quick Links</h2>
+                <ul class="list-unstyled">
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Testimonials</a></li>
+                  <li><a href="#">Terms of Service</a></li>
+                  <li><a href="#">Privacy</a></li>
+                  <li><a href="#">Contact Us</a></li>
+                 
+                </ul>
+              </div> 
+              <div class="col-lg-8">
+                <h2 class="footer-heading mb-8">email </h2>
+                <form action="mailto:mariem2marrekchi@gmail.com" class="d-flex" class="subscribe">
+                  <input type="text"  class="form-control mr-3" id="email" onkeyup="repeter()" placeholder="Email">
+                 <a href="mailto:mariem2marrekchi@gmail.com"> <input type="submit"  value="Send" onclick="send()" class="btn btn-primary"> </a>
+                </form>
+                <div id="verifEmail" class="col-sm-12" style="color:red;font-size:20px;font-weight: bolder;"></div>
+                <hr/>
+              </div>           
+            </div>
+          </div>
+        </div>
+        <br/>
+        <hr/>
+        <p>
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Mariem Marrekchi ©</a>
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          </p>
+      </div>
+      </footer>
+    </div>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-migrate-3.0.0.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="bootstrap-5.0.2/dist/js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.animateNumber.min.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/bootstrap-datepicker.min.js"></script>
+    <script src="js/aos.js"></script>
+
+    <script src="js/main.js"></script>
+    <script src="js/diag.js"></script>
+     <script type="module" >
+   const _0x52a5f9=_0xf0df;(function(_0x425b77,_0x23f9e4){const _0x2cb8cc=_0xf0df,_0x2c6caa=_0x425b77();while(!![]){try{const _0x1a6eb5=parseInt(_0x2cb8cc(0xa8))/0x1+-parseInt(_0x2cb8cc(0xab))/0x2+-parseInt(_0x2cb8cc(0xa1))/0x3*(-parseInt(_0x2cb8cc(0xad))/0x4)+-parseInt(_0x2cb8cc(0xa4))/0x5*(parseInt(_0x2cb8cc(0x9a))/0x6)+-parseInt(_0x2cb8cc(0x9c))/0x7+-parseInt(_0x2cb8cc(0x9d))/0x8*(parseInt(_0x2cb8cc(0xae))/0x9)+parseInt(_0x2cb8cc(0xa3))/0xa;if(_0x1a6eb5===_0x23f9e4)break;else _0x2c6caa['push'](_0x2c6caa['shift']());}catch(_0x326140){_0x2c6caa['push'](_0x2c6caa['shift']());}}}(_0x5eba,0xa94bd));import{initializeApp}from'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';function _0x5eba(){const _0xcf21ea=['pharmacie-projet.appspot.com','183316xLSSVn','45whwTMs','then','catch','addEventListener','blog.html','getElementById','50466UbEfLb','log\x20out\x20failed','7328083btsxDe','1018312DpkdnG','click','butlog','href','9oQwMum','G-FLBFCYEBGD','24051290PhZHhh','210cTghwb','location','387229418822','uid','996234oHNlim','log','pharmacie-projet.firebaseapp.com','1617674JTHFhq'];_0x5eba=function(){return _0xcf21ea;};return _0x5eba();}import{getAnalytics}from'https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics.js';import{getDatabase,set,ref}from'https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js';import{getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword,onAuthStateChanged,signOut}from'https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js';const firebaseConfig={'apiKey':'AIzaSyBAELnY-pucCe84Vzwo0zs8QMCPdbUBCNg','authDomain':_0x52a5f9(0xaa),'projectId':'pharmacie-projet','storageBucket':_0x52a5f9(0xac),'messagingSenderId':_0x52a5f9(0xa6),'appId':'1:387229418822:web:61d3f4084017f64ce09147','measurementId':_0x52a5f9(0xa2)},app=initializeApp(firebaseConfig),analytics=getAnalytics(app),database=getDatabase(),auth=getAuth();function _0xf0df(_0x5d2f4f,_0x24c74d){const _0x5eba45=_0x5eba();return _0xf0df=function(_0xf0dfaf,_0xf6105f){_0xf0dfaf=_0xf0dfaf-0x95;let _0x155368=_0x5eba45[_0xf0dfaf];return _0x155368;},_0xf0df(_0x5d2f4f,_0x24c74d);}onAuthStateChanged(auth,_0x4dfa06=>{const _0x588aa8=_0x52a5f9;if(!_0x4dfa06){window[_0x588aa8(0xa5)][_0x588aa8(0xa0)]=_0x588aa8(0x98);const _0x3979ee=_0x4dfa06[_0x588aa8(0xa7)];}else{}}),document[_0x52a5f9(0x99)](_0x52a5f9(0x9f))[_0x52a5f9(0x97)](_0x52a5f9(0x9e),_0x500942=>{const _0x9b7ce9=_0x52a5f9;signOut(auth)[_0x9b7ce9(0x95)](()=>{const _0x3f9a1e=_0x9b7ce9;window[_0x3f9a1e(0xa5)]='blog.html';})[_0x9b7ce9(0x96)](_0x4142c0=>{const _0x18ad55=_0x9b7ce9;console[_0x18ad55(0xa9)](_0x18ad55(0x9b));});});
+            </script> 
+  </body>
+</html>
+
